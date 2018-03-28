@@ -1,0 +1,106 @@
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+html, body, #root {
+    height: 100%;
+}
+
+.forecastContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    padding: 50px;
+}
+
+.dayForecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    text-align: center;
+    width: 200px;
+}
+
+.dayForecast div {
+    padding: 10px;
+}
+
+.dayForecast img {
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto;
+}
+
+.dayForecast .windIcon {
+    display: block;
+    margin-bottom: 10px;
+    height: 32px;
+
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.desc {
+    color: gray;
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
+#searchForm {
+    text-align: center;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid black;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.forecastWrapper {
+    height: 450px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type=text] {
+    border: 1px solid black;
+    background: white;
+    color: black;
+    padding: 5px;
+}
+
+button {
+    border: 1px solid black;
+    background: white;
+    color: black;
+    padding: 5px;
+}
+
+button:hover {
+    color: white;
+    background: black;
+}
+
+.message {
+    background: black;
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+}
