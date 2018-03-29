@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment'
+import PropTypes from 'prop-types';
+
 import './Home.css';
 import axios from 'axios';
 
@@ -36,10 +38,6 @@ class Home extends Component {
     }).catch(function (error) {
       th.setState({'error': true});
     });
-  }
-
-  componentWillUnmount() {
-
   }
 
   render() {
@@ -83,30 +81,35 @@ class City extends Component {
   }
 }
 
-class Forecast extends Component {
-  render() {
-    let currentDay = 0;
-    const days = this.props.forecast == null ? 'Nothing' : this.props.forecast.map((f) => {
-      let convertedDay = moment.unix(f.dt).format('d');
-      currentDay = (currentDay === 0 ? convertedDay : currentDay);
-      let shouldRender = convertedDay !== currentDay;
-      currentDay = convertedDay;
-      if(shouldRender)
-        return <DayForecast forecast={f} key={f.dt}/>;
-      return '';
-    }); 
+City.propTypes = {
+  onChange: PropTypes.func.isRequired
+};
 
-    return (
-      <div className='forecastContainer'>
-        {days}
-      </div>
-    );
-  }
+function Forecast(props) {
+  let currentDay = 0;
+  const days = props.forecast == null ? 'Nothing' : props.forecast.map((f) => {
+    let convertedDay = moment.unix(f.dt).format('d');
+    currentDay = (currentDay === 0 ? convertedDay : currentDay);
+    let shouldRender = convertedDay !== currentDay;
+    currentDay = convertedDay;
+    if(shouldRender)
+      return <DayForecast forecast={f} key={f.dt}/>;
+    return '';
+  }); 
+
+  return (
+    <div className='forecastContainer'>
+      {days}
+    </div>
+  );
 }
 
-class DayForecast extends Component {
-  render() {
-    const f = this.props.forecast;
+Forecast.propTypes = {
+  forecast: PropTypes.array.isRequired
+};
+
+function DayForecast(props) {
+    const f = props.forecast;
     const arrowRotation = {
       transform: 'rotate('+f.wind.deg+'deg)'
     }
@@ -122,23 +125,26 @@ class DayForecast extends Component {
         </div>
       </div>
     );
-  }
 }
 
-class Loader extends Component {
-  render() {
-    return (
-      <div className="loader"></div>
-    );
-  }
+DayForecast.propTypes = {
+  forecast: PropTypes.object.isRequired
 }
 
-class ErrorMessage extends Component {
-  render() {
-    return (
-      <div className="message warning">{this.props.children}</div>
-    );
-  }
+function Loader() {
+  return (
+    <div className="loader"></div>
+  );
+}
+
+function ErrorMessage(props) {
+  return (
+    <div className="message warning">{props.children}</div>
+  );
+}
+
+ErrorMessage.propTypes = {
+  children: PropTypes.node.isRequired
 }
 
 export default Home;
