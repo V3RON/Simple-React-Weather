@@ -147,4 +147,4 @@ ErrorMessage.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-export default Home;
+export { ErrorMessage, Loader, DayForecast, Forecast, City, Home };
