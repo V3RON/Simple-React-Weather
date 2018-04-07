@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js test
+  /usr/bin/node /usr/share/yarn/bin/yarn.js start
 
 PATH: 
   /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -34,6 +34,9 @@ npm manifest:
       "build": "react-scripts build",
       "test": "react-scripts test --env=jsdom",
       "eject": "react-scripts eject"
+    },
+    "devDependencies": {
+      "enzyme-adapter-react-16": "^1.1.1"
     }
   }
 
@@ -2268,6 +2271,26 @@ Lockfile:
   entities@^1.1.1, entities@~1.1.1:
     version "1.1.1"
     resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
+  
+  enzyme-adapter-react-16@^1.1.1:
+    version "1.1.1"
+    resolved "https://registry.yarnpkg.com/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.1.1.tgz#a8f4278b47e082fbca14f5bfb1ee50ee650717b4"
+    dependencies:
+      enzyme-adapter-utils "^1.3.0"
+      lodash "^4.17.4"
+      object.assign "^4.0.4"
+      object.values "^1.0.4"
+      prop-types "^15.6.0"
+      react-reconciler "^0.7.0"
+      react-test-renderer "^16.0.0-0"
+  
+  enzyme-adapter-utils@^1.3.0:
+    version "1.3.0"
+    resolved "https://registry.yarnpkg.com/enzyme-adapter-utils/-/enzyme-adapter-utils-1.3.0.tgz#d6c85756826c257a8544d362cc7a67e97ea698c7"
+    dependencies:
+      lodash "^4.17.4"
+      object.assign "^4.0.4"
+      prop-types "^15.6.0"
   
   enzyme@^3.3.0:
     version "3.3.0"
@@ -4966,7 +4989,7 @@ Lockfile:
     dependencies:
       isobject "^3.0.0"
   
-  object.assign@^4.1.0:
+  object.assign@^4.0.4, object.assign@^4.1.0:
     version "4.1.0"
     resolved "https://registry.yarnpkg.com/object.assign/-/object.assign-4.1.0.tgz#968bf1100d7956bb3ca086f006f846b3bc4008da"
     dependencies:
@@ -5830,11 +5853,24 @@ Lockfile:
     version "4.0.0"
     resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.0.tgz#d198408a85b4070937a98667f500c832f86bd5d4"
   
+  react-is@^16.3.1:
+    version "16.3.1"
+    resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.3.1.tgz#ee66e6d8283224a83b3030e110056798488359ba"
+  
   react-loadable@^5.3.1:
     version "5.3.1"
     resolved "https://registry.yarnpkg.com/react-loadable/-/react-loadable-5.3.1.tgz#9699e9a08fed49bacd69caaa282034b62a76bcdd"
     dependencies:
       prop-types "^15.5.0"
+  
+  react-reconciler@^0.7.0:
+    version "0.7.0"
+    resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.7.0.tgz#9614894103e5f138deeeb5eabaf3ee80eb1d026d"
+    dependencies:
+      fbjs "^0.8.16"
+      loose-envify "^1.1.0"
+      object-assign "^4.1.1"
+      prop-types "^15.6.0"
   
   react-router-dom@^4.2.2:
     version "4.2.2"
@@ -5902,6 +5938,15 @@ Lockfile:
       whatwg-fetch "2.0.3"
     optionalDependencies:
       fsevents "^1.1.3"
+  
+  react-test-renderer@^16.0.0-0:
+    version "16.3.1"
+    resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.3.1.tgz#d9257936d8535bd40f57f3d5a84e7b0452fb17f2"
+    dependencies:
+      fbjs "^0.8.16"
+      object-assign "^4.1.1"
+      prop-types "^15.6.0"
+      react-is "^16.3.1"
   
   react@^16.2.0:
     version "16.3.1"
@@ -7538,9 +7583,9 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit signal: SIGHUP
+  Exit code: 127
   Command: sh
-  Arguments: -c react-scripts test --env=jsdom
+  Arguments: -c react-scripts start
   Directory: /home/aitwar/React/Simple-React-Weather
   Output:
   
